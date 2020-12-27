@@ -5,3 +5,5 @@ dist/*
 !dist/.git
 *.log
 *.log.*
+public/bundle.js
+public/bundle.js.map
