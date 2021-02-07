@@ -7,12 +7,16 @@ import {createFilterTemplate} from "./components/createFilterTemplate.js";
 import {createLoadMoreTemplate} from "./components/createLoadMoreTemplate.js";
 import {createSiteMenuTemplate} from "./components/createSiteMenuTemplate.js";
 
+import {generateTask} from "./mock/task.js"
+
 
 
 const siteMainElement = document.querySelector(`.main`);
 const siteHeaderElement = siteMainElement.querySelector(`.main__control`);
 
 const TASK_COUNT = 4;
+
+const tasks = new Array(TASK_COUNT).fill().map(generateTask);
 
 const render = (container, template, place = "beforeEnd") => {
     container.insertAdjacentHTML(place, template);
