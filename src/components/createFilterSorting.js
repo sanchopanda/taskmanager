@@ -1,4 +1,4 @@
-const createFilterSorting = () => {
+export const createFilterSorting = () => {
     return (
         `<section class="board container">
         <div class="board__filter-list">

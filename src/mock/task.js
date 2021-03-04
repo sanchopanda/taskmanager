@@ -1,23 +1,18 @@
 import dayjs from "dayjs";
-
-const getRandomInteger = () => {
-  const lower = Math.ceil(Math.min(a, b));
-  const upper = Math.floor(Math.max(a, b));
-
-  return Math.floor(lower + Math.random() * (upper - lower + 1));
-}
+import {getRandomInteger} from "../utils.js";
+import {COLORS} from "../const.js";
 
 const generateDescription = () => {
-  const descriptions = [ `Изучить теорию`,
-  `Сделать домашку`,
-  `Пройти интенсив на соточку`];
+  const descriptions = [`Изучить теорию`,
+    `Сделать домашку`,
+    `Пройти интенсив на соточку`];
 
   const randomIndex = getRandomInteger(0, descriptions.length - 1);
 
-   return descriptions[randomIndex];
+  return descriptions[randomIndex];
 };
 
-const generateDate = () => {  
+const generateDate = () => {
   const isDate = Boolean(getRandomInteger(0, 1));
 
   if (!isDate) {
@@ -38,31 +33,30 @@ const generateRepeating = () => {
     th: Boolean(getRandomInteger(0, 1)),
     fr: Boolean(getRandomInteger(0, 1)),
     sa: Boolean(getRandomInteger(0, 1)),
-    su: fBoolean(getRandomInteger(0, 1))
+    su: Boolean(getRandomInteger(0, 1))
   };
 };
 
 const generateColor = () => {
-  const colors = [ `black`,`yellow`,`blue`,`green`,`pink`];
 
-  const randomIndex = getRandomInteger(0, descriptions.length - 1);
+  const randomIndex = getRandomInteger(0, COLORS.length - 1);
 
-   return colors[randomIndex];
+  return COLORS[randomIndex];
 };
 
 export const generateTask = () => {
-  const dueDate = generateDate();   
-   const repeating = dueDate === null
-     ? generateRepeating()
-     : {
-       mo: false,
-       tu: false,
-       we: false,
-       th: false,
-       fr: false,
-       sa: false,
-       su: false
-     };
+  const dueDate = generateDate();
+  const repeating = dueDate === null
+    ? generateRepeating()
+    : {
+      mo: false,
+      tu: false,
+      we: false,
+      th: false,
+      fr: false,
+      sa: false,
+      su: false
+    };
 
 
   return {
